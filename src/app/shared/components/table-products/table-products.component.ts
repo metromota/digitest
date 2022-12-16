@@ -1,6 +1,8 @@
 import { ProductService } from "./../../../core/services/product.service"
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, ViewChild } from "@angular/core"
 import { Product } from "../../models/product"
+import { MatTableDataSource } from "@angular/material/table"
+import { MatPaginator } from "@angular/material/paginator"
 
 @Component({
     selector: "app-table-products",
@@ -8,14 +10,16 @@ import { Product } from "../../models/product"
     styleUrls: ["./table-products.component.css"],
 })
 export class TableProductsComponent implements OnInit {
-    public productList$: Product[] = []
-    public displayedColumns: string[] = ["id", "title", "price", "brand"]
+    displayedColumns: string[] = ["id", "title", "price", "brand"]
+    dataSource
+    @ViewChild(MatPaginator) paginator: MatPaginator
 
     constructor(private service: ProductService) {}
 
     ngOnInit(): void {
         this.service.listProducts().subscribe((response) => {
-            this.productList$ = response.products
+            this.dataSource = new MatTableDataSource<Product>(response.products)
+            this.dataSource.paginator = this.paginator
         })
     }
 }
