@@ -7,18 +7,19 @@ import { MatPaginator } from "@angular/material/paginator"
 @Component({
     selector: "app-table-products",
     templateUrl: "./table-products.component.html",
-    styleUrls: ["./table-products.component.css"],
 })
 export class TableProductsComponent implements OnInit {
     displayedColumns: string[] = ["id", "title", "price", "brand"]
-    dataSource
+    dataSource: MatTableDataSource<Product>
     @ViewChild(MatPaginator) paginator: MatPaginator
 
     constructor(private service: ProductService) {}
 
     ngOnInit(): void {
-        this.service.listProducts().subscribe((response) => {
-            this.dataSource = new MatTableDataSource<Product>(response.products)
+        this.service.listProducts().subscribe((dummyApiAllProducts) => {
+            this.dataSource = new MatTableDataSource<Product>(
+                dummyApiAllProducts.products
+            )
             this.dataSource.paginator = this.paginator
         })
     }
