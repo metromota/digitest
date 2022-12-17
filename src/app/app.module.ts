@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core"
 import { BrowserModule } from "@angular/platform-browser"
 import { HttpClientModule } from "@angular/common/http"
+import { ReactiveFormsModule } from "@angular/forms"
+
 import { MatTableModule } from "@angular/material/table"
 import { MatPaginatorModule } from "@angular/material/paginator"
 import { MatDialogModule } from "@angular/material/dialog"
@@ -33,6 +35,7 @@ import { DialogSaveProductContentComponent } from "./shared/components/dialog-sa
         MatDialogModule,
         MatButtonModule,
         MatIconModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
