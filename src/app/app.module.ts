@@ -8,6 +8,7 @@ import { MatPaginatorModule } from "@angular/material/paginator"
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatButtonModule } from "@angular/material/button"
 import { MatIconModule } from "@angular/material/icon"
+import { MatDividerModule } from "@angular/material/divider"
 
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
@@ -16,6 +17,7 @@ import { HomeComponent } from "./pages/home/home.component"
 import { TableProductsComponent } from "./shared/components/table-products/table-products.component"
 import { DialogSaveProductComponent } from "./shared/components/dialog-save-product/dialog-save-product.component"
 import { DialogSaveProductContentComponent } from "./shared/components/dialog-save-product-content/dialog-save-product-content.component"
+import { LoadingComponent } from "./shared/components/loading/loading.component"
 
 @NgModule({
     declarations: [
@@ -24,6 +26,7 @@ import { DialogSaveProductContentComponent } from "./shared/components/dialog-sa
         TableProductsComponent,
         DialogSaveProductComponent,
         DialogSaveProductContentComponent,
+        LoadingComponent,
     ],
     imports: [
         BrowserModule,
@@ -35,6 +38,7 @@ import { DialogSaveProductContentComponent } from "./shared/components/dialog-sa
         MatDialogModule,
         MatButtonModule,
         MatIconModule,
+        MatDividerModule,
         ReactiveFormsModule,
     ],
     providers: [],
