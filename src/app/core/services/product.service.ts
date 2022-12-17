@@ -11,4 +11,10 @@ export class ProductService {
     listProducts() {
         return this.http.get<any>(Environment.getDomain())
     }
+
+    listPaginatedProducts(limit: number, skip: number) {
+        return this.http.get<any>(
+            `${Environment.getDomain()}?limit=${limit}&skip=${skip}`
+        )
+    }
 }
