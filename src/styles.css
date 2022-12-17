@@ -10,7 +10,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .content{
     width: 80%;
     margin: 0 auto;
-    padding: 20px 0;
+}
+
+.spaced{
+    margin: 40px 0;
 }
 
 .flex{
