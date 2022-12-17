@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Environment } from "src/app/shared/environment"
+import { Product } from "src/app/shared/models/product"
 
 @Injectable({
     providedIn: "root",
@@ -8,13 +9,17 @@ import { Environment } from "src/app/shared/environment"
 export class ProductService {
     constructor(private http: HttpClient) {}
 
-    listProducts() {
-        return this.http.get<any>(Environment.getDomain())
-    }
-
     listPaginatedProducts(limit: number, skip: number) {
         return this.http.get<any>(
             `${Environment.getDomain()}?limit=${limit}&skip=${skip}`
         )
+    }
+
+    saveProduct(product: Product) {
+        return this.http.post(`${Environment.getDomain()}/add`, product)
+    }
+
+    updateProduct(id: number, product: Product) {
+        return this.http.put(`${Environment.getDomain()}/${id}`, product)
     }
 }
