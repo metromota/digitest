@@ -9,10 +9,13 @@ import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { HomeComponent } from "./pages/home/home.component"
-import { TableProductsComponent } from "./shared/components/table-products/table-products.component"
+import { TableProductsComponent } from "./shared/components/table-products/table-products.component";
+import { DialogWindowComponent } from './shared/components/dialog/dialog.window/dialog.window.component';
+import { SaveFormComponent } from './shared/components/dialog/save.form/save.form.component';
+import { UpdateFormComponent } from './shared/components/dialog/update.form/update.form.component'
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, TableProductsComponent],
+    declarations: [AppComponent, HomeComponent, TableProductsComponent, DialogWindowComponent, SaveFormComponent, UpdateFormComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
