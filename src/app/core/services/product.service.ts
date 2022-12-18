@@ -10,22 +10,17 @@ export class ProductService {
     constructor(private http: HttpClient) {}
 
     listPaginatedProducts(limit: number, skip: number) {
-        return this.http.get<any>(
-            `${Environment.getDomain()}?limit=${limit}&skip=${skip}`
-        )
+        const endpoint = `${Environment.getDomain()}?limit=${limit}&skip=${skip}`
+        return this.http.get<any>(endpoint)
     }
 
     saveProduct(product: Product) {
-        return this.http.post<Product>(
-            `${Environment.getDomain()}/add`,
-            product
-        )
+        const endpoint = `${Environment.getDomain()}/add`
+        return this.http.post<Product>(endpoint, product)
     }
 
     updateProduct(id: number, product: Product) {
-        return this.http.put<Product>(
-            `${Environment.getDomain()}/${id}`,
-            product
-        )
+        const endpoint =  `${Environment.getDomain()}/${id}`
+        return this.http.put<Product>(endpoint,product)
     }
 }
