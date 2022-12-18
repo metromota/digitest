@@ -6,6 +6,11 @@ const homeRoutes: Routes = [
         path: "",
         component: HomeComponent,
     },
+    {
+        path:"**",
+        pathMatch: "full",
+        redirectTo:"/"
+    }
 ]
 
 export { homeRoutes }
