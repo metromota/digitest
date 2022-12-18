@@ -5,7 +5,6 @@ import { DialogUpdateProductContentComponent } from "../dialog-update-product-co
 @Component({
     selector: "app-dialog-update-product",
     templateUrl: "./dialog-update-product.component.html",
-    styleUrls: ["./dialog-update-product.component.css"],
 })
 export class DialogUpdateProductComponent {
     @Input() id: number
