@@ -1,3 +1,5 @@
+
+@import 'ngx-toastr/toastr';
 /* You can add global styles to this file, and also import other style files */
 *{
     box-sizing: border-box;
@@ -32,3 +34,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 1px solid crimson !important;
     color: crimson;
 }
+
+.dialog-input{    
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 100%;
+    outline: none;
+}
+
+
+
+
+
+
