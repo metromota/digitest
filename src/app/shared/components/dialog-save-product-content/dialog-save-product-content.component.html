@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Cadastro de Produto</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+        <label for="title">Titulo</label>
+        <input
+            type="text"
+            formControlName="title"
+            placeholder="Digite o título"
+            [ngClass]="{
+                error:
+                    form.controls['title'].invalid &&
+                    form.controls['title'].dirty
+            }"
+        />
+    </form>
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-flat-button (click)="onNoClick()">Cancelar</button>
+    <button
+        mat-flat-button
+        color="primary"
+        (click)="handleSaveProduct()"
+        [disabled]="form.invalid"
+        [mat-dialog-close]
+    >
+        Salvar Produto
+    </button>
+</div>
