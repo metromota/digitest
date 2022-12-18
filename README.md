@@ -23,6 +23,12 @@ $ npm i
 $ ng serve -o
 ```
 
+## Versions
+
+> @angular/cli: ~15.0.3
+> @angular/material: ^15.0.3
+> ngx-toastr": ^16.0.1
+
 ## Author
 
 👤 **hertonmota**
