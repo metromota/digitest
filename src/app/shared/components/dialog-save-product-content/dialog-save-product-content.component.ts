@@ -1,3 +1,4 @@
+import { ToastrService } from "ngx-toastr"
 import { Component, Inject } from "@angular/core"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog"
@@ -7,7 +8,6 @@ import { Product } from "../../models/product"
 @Component({
     selector: "app-dialog-save-product-content",
     templateUrl: "./dialog-save-product-content.component.html",
-    styleUrls: ["./dialog-save-product-content.component.css"],
 })
 export class DialogSaveProductContentComponent {
     form: FormGroup
@@ -15,7 +15,8 @@ export class DialogSaveProductContentComponent {
         public dialogRef: MatDialogRef<DialogSaveProductContentComponent>,
         @Inject(MAT_DIALOG_DATA) public data: Product,
         private formbuilder: FormBuilder,
-        private service: ProductService
+        private service: ProductService,
+        private toast: ToastrService
     ) {
         this.form = formbuilder.group({
             title: [
@@ -33,8 +34,14 @@ export class DialogSaveProductContentComponent {
     }
 
     handleSaveProduct() {
-        this.service.saveProduct(this.form.value).subscribe((response) => {
-            alert(JSON.stringify(response))
-        })
+        this.service.saveProduct(this.form.value).subscribe(
+            (response) => {
+                this.toast.success("Produto criado com sucesso")
+                console.log(JSON.stringify(response)) // conferencia do response no console
+            },
+            (error) => {
+                this.toast.error("Ocorreu um erro ao tentar salvar o produto")
+            }
+        )
     }
 }
