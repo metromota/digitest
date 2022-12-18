@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog"
 import { ProductService } from "src/app/core/services/product.service"
 import { Product } from "../../models/product"
+import { ToastrService } from "ngx-toastr"
 
 @Component({
     selector: "app-dialog-update-product-content",
@@ -14,7 +15,8 @@ export class DialogUpdateProductContentComponent {
         @Inject(MAT_DIALOG_DATA) public data: Product,
         public dialogRef: MatDialogRef<DialogUpdateProductContentComponent>,
         private service: ProductService,
-        formbuilder: FormBuilder
+        formbuilder: FormBuilder,
+        private toast: ToastrService
     ) {
         this.form = formbuilder.group({
             title: [
@@ -34,10 +36,16 @@ export class DialogUpdateProductContentComponent {
     handleUpdateProduct() {
         const { id } = this.data
 
-        this.service
-            .updateProduct(id, this.form.value)
-            .subscribe((response) => {
-                alert(JSON.stringify(response))
-            })
+        this.service.updateProduct(id, this.form.value).subscribe(
+            (response) => {
+                this.toast.success("Produto atualizado com sucesso")
+                console.log(JSON.stringify(response)) // conferencia pelo console do response
+            },
+            (error) => {
+                this.toast.error(
+                    "Ocorreu um erro ao tentar atualizar o produto"
+                )
+            }
+        )
     }
 }
