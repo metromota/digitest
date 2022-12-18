@@ -9,6 +9,7 @@ import { MatPaginator } from "@angular/material/paginator"
     templateUrl: "./table-products.component.html",
 })
 export class TableProductsComponent implements OnInit {
+    empty: boolean
     loading: boolean
     pageSize: number
     pageIndex: number
@@ -32,8 +33,9 @@ export class TableProductsComponent implements OnInit {
         this.service
             .listPaginatedProducts(5, 0)
             .subscribe((productsFromApi) => {
-                const sizeLength = productsFromApi.total
                 this.loading = false
+                const sizeLength = productsFromApi.total
+                this.empty = sizeLength < 1
                 this.dataSource = new MatTableDataSource<Product>(
                     productsFromApi.products
                 )

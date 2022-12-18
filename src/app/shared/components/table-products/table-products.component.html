@@ -1,6 +1,4 @@
 <div>
-    <app-loading *ngIf="loading"></app-loading>
-
     <table
         mat-table
         [dataSource]="dataSource"
@@ -47,8 +45,11 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
     </table>
+
+    <app-loading *ngIf="loading"></app-loading>
+
+    <p *ngIf="empty">Nenhum item encontrado</p>
 
     <mat-divider></mat-divider>
 
