@@ -15,7 +15,5 @@ export class DialogUpdateProductComponent {
             width: "450px",
             data: { id: this.id },
         })
-
-        // dialogRef.afterClosed().subscribe((result) => {})
     }
 }

@@ -35,17 +35,15 @@ export class DialogUpdateProductContentComponent {
 
     handleUpdateProduct() {
         const { id } = this.data
-
-        this.service.updateProduct(id, this.form.value).subscribe(
-            (response) => {
-                this.toast.success("Produto atualizado com sucesso")
-                console.log(JSON.stringify(response)) // conferencia pelo console do response
-            },
-            (error) => {
-                this.toast.error(
-                    "Ocorreu um erro ao tentar atualizar o produto"
-                )
-            }
-        )
+        const onSuccessUpdate =  (response) => {
+            this.toast.success("Produto atualizado com sucesso")
+            console.log(JSON.stringify(response)) // conferencia pelo console do response
+        }
+        const onErrorUpdate = (error) => {
+            this.toast.error(
+                "Ocorreu um erro ao tentar atualizar o produto"
+            )
+        }
+        this.service.updateProduct(id, this.form.value).subscribe(onSuccessUpdate,onErrorUpdate)
     }
 }

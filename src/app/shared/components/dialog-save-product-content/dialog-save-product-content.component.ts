@@ -34,14 +34,13 @@ export class DialogSaveProductContentComponent {
     }
 
     handleSaveProduct() {
-        this.service.saveProduct(this.form.value).subscribe(
-            (response) => {
-                this.toast.success("Produto criado com sucesso")
-                console.log(JSON.stringify(response)) // conferencia do response no console
-            },
-            (error) => {
-                this.toast.error("Ocorreu um erro ao tentar salvar o produto")
-            }
-        )
+        const onSuccessSave = (response) => {
+            this.toast.success("Produto criado com sucesso")
+            console.log(JSON.stringify(response)) // conferencia do response no console
+        }
+        const onErrorSave = (error) => {
+            this.toast.error("Ocorreu um erro ao tentar salvar o produto")
+        }
+        this.service.saveProduct(this.form.value).subscribe(onSuccessSave, onErrorSave)
     }
 }

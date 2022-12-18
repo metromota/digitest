@@ -30,33 +30,33 @@ export class TableProductsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.service.listPaginatedProducts(5, 0).subscribe(
-            (productsFromApi) => {
-                this.isloading = false
-                const sizeLength = productsFromApi.total
-                this.isempty = sizeLength < 1
-                this.dataSource$ = new MatTableDataSource<Product>(
-                    productsFromApi.products
-                )
-                this.dataSource$.paginator = this.paginator
-                this.length = sizeLength
-            },
-            (error) => (this.isloading = false)
-        )
+        const onErrorRequest = (error) => this.changeLoading(false)
+        const onSuccessRequest = (productsFromApi) => {
+            const sizeLength = productsFromApi.total
+            const productResponse = productsFromApi.products
+            this.changeLoading(false)
+            this.isempty = sizeLength < 1
+            this.dataSource$ = new MatTableDataSource<Product>(productResponse)
+            this.dataSource$.paginator = this.paginator
+            this.length = sizeLength
+        }
+        this.service.listPaginatedProducts(5, 0).subscribe(onSuccessRequest, onErrorRequest)
     }
 
     handlePageEvent($event) {
-        this.isloading = true
         const limit = $event.pageSize
         const skip = $event.pageIndex * $event.pageSize
-        this.service.listPaginatedProducts(limit, skip).subscribe(
-            (productsFromApi) => {
-                this.isloading = false
-                this.dataSource$ = new MatTableDataSource<Product>(
-                    productsFromApi.products
-                )
-            },
-            (error) => (this.isloading = false)
-        )
+        const onSuccessRequest = (productsFromApi) => {
+            const productResponse = productsFromApi.products
+            this.changeLoading(false)
+            this.dataSource$ = new MatTableDataSource<Product>(productResponse)
+        }
+        const onErrorRequest = (error) => this.changeLoading(false)
+        this.changeLoading(true)
+        this.service.listPaginatedProducts(limit, skip).subscribe(onSuccessRequest, onErrorRequest)
+    }
+
+    private changeLoading(status: boolean) {
+        this.isloading = status
     }
 }
