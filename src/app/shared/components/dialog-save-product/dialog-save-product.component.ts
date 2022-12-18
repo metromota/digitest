@@ -5,7 +5,6 @@ import { DialogSaveProductContentComponent } from "../dialog-save-product-conten
 @Component({
     selector: "app-dialog-save-product",
     templateUrl: "./dialog-save-product.component.html",
-    styleUrls: ["./dialog-save-product.component.css"],
 })
 export class DialogSaveProductComponent {
     constructor(public dialog: MatDialog) {}
