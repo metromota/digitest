@@ -1,9 +1,9 @@
 <div>
     <table
         mat-table
-        [dataSource]="dataSource"
+        [dataSource]="dataSource$"
         class="mat-elevation-z8 spaced"
-        *ngIf="!loading"
+        *ngIf="!isloading"
     >
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -47,9 +47,9 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <app-loading *ngIf="loading"></app-loading>
+    <app-loading *ngIf="isloading"></app-loading>
 
-    <p *ngIf="empty">Nenhum item encontrado</p>
+    <p *ngIf="isempty">Nenhum item encontrado</p>
 
     <mat-divider></mat-divider>
 

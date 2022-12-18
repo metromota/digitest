@@ -9,8 +9,8 @@ import { MatPaginator } from "@angular/material/paginator"
     templateUrl: "./table-products.component.html",
 })
 export class TableProductsComponent implements OnInit {
-    empty: boolean
-    loading: boolean
+    isempty: boolean
+    isloading: boolean
     pageSize: number
     pageIndex: number
     length: number
@@ -22,39 +22,41 @@ export class TableProductsComponent implements OnInit {
         "brand",
         "price",
     ]
-    dataSource: MatTableDataSource<Product>
+    dataSource$: MatTableDataSource<Product>
     @ViewChild(MatPaginator) paginator: MatPaginator
 
     constructor(private service: ProductService) {
-        this.loading = true
+        this.isloading = true
     }
 
     ngOnInit(): void {
-        this.service
-            .listPaginatedProducts(5, 0)
-            .subscribe((productsFromApi) => {
-                this.loading = false
+        this.service.listPaginatedProducts(5, 0).subscribe(
+            (productsFromApi) => {
+                this.isloading = false
                 const sizeLength = productsFromApi.total
-                this.empty = sizeLength < 1
-                this.dataSource = new MatTableDataSource<Product>(
+                this.isempty = sizeLength < 1
+                this.dataSource$ = new MatTableDataSource<Product>(
                     productsFromApi.products
                 )
-                this.dataSource.paginator = this.paginator
+                this.dataSource$.paginator = this.paginator
                 this.length = sizeLength
-            })
+            },
+            (error) => (this.isloading = false)
+        )
     }
 
     handlePageEvent($event) {
-        this.loading = true
+        this.isloading = true
         const limit = $event.pageSize
         const skip = $event.pageIndex * $event.pageSize
-        this.service
-            .listPaginatedProducts(limit, skip)
-            .subscribe((productsFromApi) => {
-                this.loading = false
-                this.dataSource = new MatTableDataSource<Product>(
+        this.service.listPaginatedProducts(limit, skip).subscribe(
+            (productsFromApi) => {
+                this.isloading = false
+                this.dataSource$ = new MatTableDataSource<Product>(
                     productsFromApi.products
                 )
-            })
+            },
+            (error) => (this.isloading = false)
+        )
     }
 }
