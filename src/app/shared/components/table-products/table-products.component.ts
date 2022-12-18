@@ -9,12 +9,12 @@ import { MatPaginator } from "@angular/material/paginator"
     templateUrl: "./table-products.component.html",
 })
 export class TableProductsComponent implements OnInit {
-    isempty: boolean
-    isloading: boolean
-    pageSize: number
-    pageIndex: number
-    length: number
-    displayedColumns: string[] = [
+    public isempty: boolean
+    public isloading: boolean
+    public pageSize: number
+    public pageIndex: number
+    public length: number
+    public displayedColumns: string[] = [
         "id",
         "edit",
         "title",
@@ -22,7 +22,7 @@ export class TableProductsComponent implements OnInit {
         "brand",
         "price",
     ]
-    dataSource$: MatTableDataSource<Product>
+    public dataSource$: MatTableDataSource<Product>
     @ViewChild(MatPaginator) paginator: MatPaginator
 
     constructor(private service: ProductService) {

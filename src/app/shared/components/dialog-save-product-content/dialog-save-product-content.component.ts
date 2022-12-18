@@ -10,7 +10,7 @@ import { Product } from "../../models/product"
     templateUrl: "./dialog-save-product-content.component.html",
 })
 export class DialogSaveProductContentComponent {
-    form: FormGroup
+    public form: FormGroup
     constructor(
         public dialogRef: MatDialogRef<DialogSaveProductContentComponent>,
         @Inject(MAT_DIALOG_DATA) public data: Product,

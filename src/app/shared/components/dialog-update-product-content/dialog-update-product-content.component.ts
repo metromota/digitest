@@ -10,7 +10,7 @@ import { ToastrService } from "ngx-toastr"
     templateUrl: "./dialog-update-product-content.component.html",
 })
 export class DialogUpdateProductContentComponent {
-    form: FormGroup
+    public form: FormGroup
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: Product,
         public dialogRef: MatDialogRef<DialogUpdateProductContentComponent>,
