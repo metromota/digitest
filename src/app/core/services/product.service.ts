@@ -16,10 +16,16 @@ export class ProductService {
     }
 
     saveProduct(product: Product) {
-        return this.http.post(`${Environment.getDomain()}/add`, product)
+        return this.http.post<Product>(
+            `${Environment.getDomain()}/add`,
+            product
+        )
     }
 
     updateProduct(id: number, product: Product) {
-        return this.http.put(`${Environment.getDomain()}/${id}`, product)
+        return this.http.put<Product>(
+            `${Environment.getDomain()}/${id}`,
+            product
+        )
     }
 }
