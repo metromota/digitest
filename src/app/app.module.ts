@@ -26,6 +26,8 @@ import { DialogUpdateProductComponent } from "./shared/components/dialog-update-
 import { DialogUpdateProductContentComponent } from "./shared/components/dialog-update-product-content/dialog-update-product-content.component"
 import { MatPaginatorIntlPtBr } from "./shared/intl/paginator.ptbr"
 
+import { ToastrModule } from "ngx-toastr"
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -50,6 +52,7 @@ import { MatPaginatorIntlPtBr } from "./shared/intl/paginator.ptbr"
         MatDividerModule,
         ReactiveFormsModule,
         MatProgressSpinnerModule,
+        ToastrModule.forRoot(),
     ],
     providers: [
         {
