@@ -3,12 +3,24 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Teste para vaga Front End Angular, na Empresa Digifred em Frederico Westpahlen-RS
+> Test for Front End Angular work, in Digifred Company located in Frederico Westpahlen-RS
 
-## Usage
+## Clone Project
 
 ```sh
 git clone git@github.com:metromota/digitest.git
+```
+
+## Install Dependencies
+
+```bash
+$ npm i
+```
+
+## Running App
+
+```bash
+$ ng serve -o
 ```
 
 ## Author
