@@ -8,7 +8,7 @@
 ## Clone Project
 
 ```sh
-git clone git@github.com:metromota/digitest.git
+$ git clone git@github.com:metromota/digitest.git
 ```
 
 ## Install Dependencies
