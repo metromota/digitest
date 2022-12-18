@@ -7,7 +7,6 @@ import { Product } from "../../models/product"
 @Component({
     selector: "app-dialog-update-product-content",
     templateUrl: "./dialog-update-product-content.component.html",
-    styleUrls: ["./dialog-update-product-content.component.css"],
 })
 export class DialogUpdateProductContentComponent {
     form: FormGroup
