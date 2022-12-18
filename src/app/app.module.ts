@@ -6,7 +6,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { AppRoutingModule } from "./app-routing.module"
 
 import { MatTableModule } from "@angular/material/table"
-import { MatPaginatorModule } from "@angular/material/paginator"
+import {
+    MatPaginatorIntl,
+    MatPaginatorModule,
+} from "@angular/material/paginator"
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatButtonModule } from "@angular/material/button"
 import { MatIconModule } from "@angular/material/icon"
@@ -21,6 +24,8 @@ import { DialogSaveProductContentComponent } from "./shared/components/dialog-sa
 import { LoadingComponent } from "./shared/components/loading/loading.component"
 import { DialogUpdateProductComponent } from "./shared/components/dialog-update-product/dialog-update-product.component"
 import { DialogUpdateProductContentComponent } from "./shared/components/dialog-update-product-content/dialog-update-product-content.component"
+import { MatPaginatorIntlPtBr } from "./shared/intl/paginator.ptbr"
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -46,7 +51,12 @@ import { DialogUpdateProductContentComponent } from "./shared/components/dialog-
         ReactiveFormsModule,
         MatProgressSpinnerModule,
     ],
-    providers: [],
+    providers: [
+        {
+            provide: MatPaginatorIntl,
+            useClass: MatPaginatorIntlPtBr,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
