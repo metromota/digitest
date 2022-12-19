@@ -12,9 +12,9 @@ import { Product } from "../../models/product"
 export class DialogSaveProductContentComponent {
     public form: FormGroup
     constructor(
-        public dialogRef: MatDialogRef<DialogSaveProductContentComponent>,
         @Inject(MAT_DIALOG_DATA) public data: Product,
         private formbuilder: FormBuilder,
+        public dialogRef: MatDialogRef<DialogSaveProductContentComponent>,
         private service: ProductService,
         private toast: ToastrService
     ) {

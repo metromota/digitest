@@ -13,9 +13,9 @@ export class DialogUpdateProductContentComponent {
     public form: FormGroup
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: Product,
+        private formbuilder: FormBuilder,
         public dialogRef: MatDialogRef<DialogUpdateProductContentComponent>,
         private service: ProductService,
-        formbuilder: FormBuilder,
         private toast: ToastrService
     ) {
         const validatorsOfTitle = Validators.compose([
