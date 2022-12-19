@@ -18,15 +18,15 @@ export class DialogUpdateProductContentComponent {
         formbuilder: FormBuilder,
         private toast: ToastrService
     ) {
-        this.form = formbuilder.group({
-            title: [
-                "",
-                Validators.compose([
-                    Validators.required,
-                    Validators.minLength(3),
-                ]),
-            ],
-        })
+        const validatorsOfTitle = Validators.compose([
+            Validators.required,
+            Validators.minLength(3),
+        ])
+        const title = [
+            "",
+            validatorsOfTitle,
+        ]
+        this.form = formbuilder.group({title})
     }
 
     onNoClick(): void {
