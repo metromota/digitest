@@ -30,6 +30,7 @@ ng serve -o
 ## Versions
 
 ```bash
+# nodejs: 18.12.0
 # @angular/cli: ~15.0.3
 # @angular/material: ^15.0.3
 # ngx-toastr: ^16.0.1
