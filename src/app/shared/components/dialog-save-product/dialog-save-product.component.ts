@@ -13,7 +13,5 @@ export class DialogSaveProductComponent {
         let dialogRef = this.dialog.open(DialogSaveProductContentComponent, {
             width: "450px",
         })
-
-        // dialogRef.afterClosed().subscribe((result) => {})
     }
 }
