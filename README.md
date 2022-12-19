@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Test for Front End Angular work, in Digifred Company located in Frederico Westpahlen-RS
+> Test for Front End Angular work, in Digifred Company located in Frederico Westphalen-RS
 
 ## Clone Project
 
@@ -32,6 +32,7 @@ ng serve -o
 ```bash
 # nodejs: 18.12.0
 # @angular/cli: ~15.0.3
+# @angular: 15.0.0
 # @angular/material: ^15.0.3
 # ngx-toastr: ^16.0.1
 ```
