@@ -8,19 +8,23 @@
 ## Clone Project
 
 ```sh
-$ git clone git@github.com:metromota/digitest.git
+git clone git@github.com:metromota/digitest.git
+```
+
+```sh
+cd digitest
 ```
 
 ## Install Dependencies
 
 ```bash
-$ npm i
+npm i
 ```
 
 ## Running App
 
 ```bash
-$ ng serve -o
+ng serve -o
 ```
 
 ## Versions
